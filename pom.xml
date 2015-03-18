@@ -29,7 +29,7 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -51,6 +51,12 @@
 			<groupId>com.smartbear.soapui</groupId>
 			<artifactId>soapui</artifactId>
 			<version>5.1.2</version>
+			<exclusions>
+				<exclusion>
+					<groupId>javafx</groupId>
+					<artifactId>jfxrt</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 	</dependencies>
 </project>
