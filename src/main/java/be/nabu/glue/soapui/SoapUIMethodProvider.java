@@ -83,13 +83,17 @@ public class SoapUIMethodProvider implements MethodProvider {
 				
 				WsdlProject project = new WsdlProject(input, new WorkspaceImpl(System.getProperty("java.io.tmpdir", ".") + "/" + UUID.randomUUID().toString() + ".xml", new StringToStringMap()));
 				ScriptMethods.debug("Project: " + project.getName());
+				String originalGroup = null;
+				if (context.getCurrent() != null && context.getCurrent().getContext() != null) {
+					originalGroup = context.getCurrent().getContext().getAnnotations().get("group");
+				}
 				for (TestSuite suite : project.getTestSuiteList()) {
 					if (ScriptRuntime.getRuntime().isAborted()) {
 						break;
 					}
 					ScriptMethods.debug("Testsuite: " + suite.getName());
 					if (context.getCurrent() != null && context.getCurrent().getContext() != null) {
-						context.getCurrent().getContext().getAnnotations().put("group", suite.getName());
+						context.getCurrent().getContext().getAnnotations().put("group", originalGroup == null ? suite.getName() : originalGroup + ":" + suite.getName());
 					}
 					for (TestCase testCase : suite.getTestCaseList()) {
 						if (ScriptRuntime.getRuntime().isAborted()) {
@@ -125,6 +129,10 @@ public class SoapUIMethodProvider implements MethodProvider {
 							TestMethods.check(testCase.getName() + " (" + runner.getTimeTaken() + "ms)", success, success ? "true" : lastErrorMessage, false);
 						}
 					}
+				}
+				// reset group to original
+				if (context.getCurrent() != null && context.getCurrent().getContext() != null) {
+					context.getCurrent().getContext().getAnnotations().put("group", originalGroup);
 				}
 			}
 			catch (XmlException e) {
