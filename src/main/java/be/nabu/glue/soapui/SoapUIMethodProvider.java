@@ -132,7 +132,14 @@ public class SoapUIMethodProvider implements MethodProvider {
 				}
 				// reset group to original
 				if (context.getCurrent() != null && context.getCurrent().getContext() != null) {
-					context.getCurrent().getContext().getAnnotations().put("group", originalGroup);
+					// only reset the group if there was one to start with
+					if (originalGroup != null) {
+						context.getCurrent().getContext().getAnnotations().put("group", originalGroup);
+					}
+					// otherwise, simply remove it
+					else {
+						context.getCurrent().getContext().getAnnotations().remove("group");
+					}
 				}
 			}
 			catch (XmlException e) {
