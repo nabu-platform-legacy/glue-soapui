@@ -41,7 +41,7 @@ public class SoapUIMethodProvider implements MethodProvider {
 
 	@Override
 	public Operation<ExecutionContext> resolve(String name) {
-		if (name.equalsIgnoreCase("soapui")) {
+		if (name.equalsIgnoreCase("soapui") || name.equals("soap.soapui")) {
 			return new SoapUIOperation();
 		}
 		return null;
