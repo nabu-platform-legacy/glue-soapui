@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>be.nabu.glue</groupId>
 	<artifactId>glue-soapui</artifactId>
-	<version>1.0-SNAPSHOT</version>
+	<version>${be.nabu.glue-glue-soapui-version}</version>
 	<name>glue-soapui</name>
 	<url>https://github.com/nablex/glue-soapui</url>
 
@@ -13,32 +13,19 @@
 		</repository>
 	</repositories>
 
+	<parent>
+		<groupId>be.nabu</groupId>
+		<artifactId>core</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+
 	<build>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>maven-bundle-plugin</artifactId>
-				<version>2.3.7</version>
-				<extensions>true</extensions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<configuration>
-					<archive>
-						<manifestEntries>
-							<Source-Url>${project.url}</Source-Url>
-							<Build-Time>${maven.build.timestamp}</Build-Time>
-							<Build-Version>${project.version}</Build-Version>
-						</manifestEntries>
-					</archive>
+					<source>1.6</source>
+					<target>1.6</target>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -46,20 +33,8 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.11</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>be.nabu.glue</groupId>
-			<artifactId>glue-api</artifactId>
-			<version>1.0-SNAPSHOT</version>
-		</dependency>
-		<dependency>
 			<groupId>be.nabu.glue</groupId>
 			<artifactId>glue</artifactId>
-			<version>1.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.smartbear.soapui</groupId>
