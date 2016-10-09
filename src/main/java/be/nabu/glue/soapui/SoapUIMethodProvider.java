@@ -11,16 +11,16 @@ import java.util.UUID;
 
 import org.apache.xmlbeans.XmlException;
 
-import be.nabu.glue.ScriptRuntime;
 import be.nabu.glue.api.ExecutionContext;
 import be.nabu.glue.api.MethodDescription;
-import be.nabu.glue.api.MethodProvider;
 import be.nabu.glue.api.ParameterDescription;
+import be.nabu.glue.core.api.MethodProvider;
+import be.nabu.glue.core.impl.methods.ScriptMethods;
+import be.nabu.glue.core.impl.methods.StringMethods;
+import be.nabu.glue.core.impl.methods.TestMethods;
 import be.nabu.glue.impl.SimpleMethodDescription;
 import be.nabu.glue.impl.SimpleParameterDescription;
-import be.nabu.glue.impl.methods.ScriptMethods;
-import be.nabu.glue.impl.methods.StringMethods;
-import be.nabu.glue.impl.methods.TestMethods;
+import be.nabu.glue.utils.ScriptRuntime;
 import be.nabu.libs.evaluator.EvaluationException;
 import be.nabu.libs.evaluator.api.Operation;
 import be.nabu.libs.evaluator.base.BaseMethodOperation;
