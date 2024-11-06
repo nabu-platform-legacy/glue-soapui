@@ -1,24 +1,21 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>be.nabu.glue</groupId>
 	<artifactId>glue-soapui</artifactId>
-	<version>${be.nabu.glue-glue-soapui-version}</version>
+	<version>1.0</version>
 	<name>glue-soapui</name>
 	<url>https://github.com/nablex/glue-soapui</url>
-
 	<repositories>
 		<repository>
 			<id>soapui-repository</id>
 			<url>http://www.soapui.org/repository/maven2/</url>
 		</repository>
 	</repositories>
-
 	<parent>
 		<groupId>be.nabu</groupId>
 		<artifactId>core</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -30,7 +27,6 @@
 			</plugin>
 		</plugins>
 	</build>
-
 	<dependencies>
 		<dependency>
 			<groupId>be.nabu.glue</groupId>
